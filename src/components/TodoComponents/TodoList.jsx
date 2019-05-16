@@ -7,7 +7,9 @@ import TodoForm from './TodoForm'
 function TodoList(props) {
   return (
     <div>
-      <Todo />
+      {props.todos.map(item => {
+        return (<Todo key={item.id} item={item} />)
+      })}
       <TodoForm onFormSubmit={props.addTodoHandler} onInputChange={props.onInputChange} todoText={props.todoText}/>
     </div>
   )

@@ -1,11 +1,11 @@
 import React from 'react'
 import './Todo.css'
 
-function Todo() {
+function Todo(props) {
   return (
-    <ul className="todo-list">
-      <li className="todo-item"></li>
-    </ul>
+    <div className="todo-list">
+      <p className="todo-item">{props.item.todo}</p>
+    </div>
   )
 }
 

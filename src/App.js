@@ -8,19 +8,18 @@ let todoArray = [
     completed: false
   }
 ]
-const defaultState = {
-  todos: todoArray,
-  todo: '',
-  id: '',
-  completed: false
-}
 class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor () {
     super()
-    this.state = defaultState
+    this.state = {
+      todos: todoArray,
+      todo: '',
+      id: '',
+      completed: false
+    }
   }
 
   changeHandler = event => {
@@ -52,6 +51,7 @@ class App extends Component {
           onInputChange={this.changeHandler}
           onSubmit={this.addTodoHandler}
           onClick={this.addTodoHandler}
+          todos={this.state.todos}
         />
       </div>
     );
