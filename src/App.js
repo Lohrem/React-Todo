@@ -40,6 +40,25 @@ class App extends Component {
       completed: false
     })
   }
+  toggleItem = todoID => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todoID === todo.id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo
+      })
+    })
+  }
+  clearCompletedHandler = event => {
+    event.preventDefault()
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    })
+  }
 
   render() {
     return (
@@ -52,6 +71,8 @@ class App extends Component {
           onSubmit={this.addTodoHandler}
           onClick={this.addTodoHandler}
           todos={this.state.todos}
+          toggleItem={this.toggleItem}
+          clearCompletedHandler={this.clearCompletedHandler}
         />
       </div>
     );

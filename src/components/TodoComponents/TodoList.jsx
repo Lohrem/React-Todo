@@ -8,9 +8,14 @@ function TodoList(props) {
   return (
     <div>
       {props.todos.map(item => {
-        return (<Todo key={item.id} item={item} />)
+        return (<Todo key={item.id} item={item} toggleItem={props.toggleItem}/>)
       })}
-      <TodoForm onFormSubmit={props.addTodoHandler} onInputChange={props.onInputChange} todoText={props.todoText}/>
+      <TodoForm
+        onFormSubmit={props.addTodoHandler}
+        onInputChange={props.onInputChange}
+        todoText={props.todoText}
+        clearCompletedHandler={props.clearCompletedHandler}
+        />
     </div>
   )
 }
