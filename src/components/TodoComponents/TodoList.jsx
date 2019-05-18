@@ -13,7 +13,7 @@ function TodoList(props) {
       <TodoForm
         onFormSubmit={props.addTodoHandler}
         onInputChange={props.onInputChange}
-        todoText={props.todoText}
+        todo={props.todoText}
         clearCompletedHandler={props.clearCompletedHandler}
         />
     </div>
